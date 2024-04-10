@@ -35,3 +35,8 @@ echo -e "Package: *\nPin: origin mirror.mariadb.org\nPin: release o=mariadb-serv
 apt update -y
 apt upgrade -y
 apt install nginx mariadb-server
+
+# Automatically create users
+if [test -f ./createUsers.sh] AND [ "$#" -gt 0 ]; then
+  bash ./createUsers.sh "$@"
+fi
