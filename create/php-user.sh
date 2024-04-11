@@ -3,5 +3,5 @@
 for newUser in "$@"
 do
     # Create new User
-    useradd -m -s /bin/bash $newUser
+    /bin/bash ./user.sh "$newUser"
 done
