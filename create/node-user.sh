@@ -10,18 +10,18 @@ do
 
     # Install NVM
     echo "  Installing NVM..."
-    sudo -H -u "$newUser" bash -l -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
+    sudo -H -u "$newUser" bash -l -c 'curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
     echo "    Successfully installed NVM!"
 
     # Install NodeJS
     echo "  Installing NodeJS..."
-    sudo -H -u "$newUser" bash -l -c 'nvm use node'
-    echo "    Successfully installed NodeJS!"
+    sudo -H -u "$newUser" bash -l -c 'nvm install --lts'
+    echo "    Successfully installed NodeJS $(sudo -H -u "$newUser" bash -l -c 'node -v')!"
 
     # Install and Setup PNPM
     echo "  Installing PNPM..."
-    sudo -H -u "$newUser" bash -l -c 'corepack enable && corepack use --activate pnpm@latest'
-    echo "    Successfully installed PNPM!"
+    sudo -H -u "$newUser" bash -l -c 'corepack install --global pnpm@latest && corepack enable pnpm && pnpm setup'
+    echo "    Successfully installed PNPM $(sudo -H -u "$newUser" bash -l -c 'pnpm -v')!"
 
     # Install PM2 and Bunyan
     echo "  Installing PM2 and Bunyan..."
