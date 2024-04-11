@@ -25,6 +25,15 @@ echo "Successfully installed system packages!"
 # Automatically create users
 if [ "$#" -gt 0 ]; then
     echo "Creating users..."
-    /bin/bash ./create/php-user.sh "$@"
+
+    cd ./create || exit 1
+    /bin/bash ./php-user.sh "$@"
+    cd ../ || exit 1
+
     echo "Successfully created users!"
 fi
+
+# Finalization's
+echo "Finalizing installation..."
+/bin/bash ./finalize/core.sh
+printf "%s\n%s\n%s\n== Successfully installed Wittig Server [PHP Edition] @ $( cat /etc/hostname ) ==%s\n%s\n%s\n"

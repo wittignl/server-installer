@@ -23,6 +23,15 @@ echo "Successfully installed system packages!"
 # Automatically create users
 if [ "$#" -gt 0 ]; then
     echo "Creating users..."
-    sudo -D ./create /bin/bash ./create/node-user.sh "$@"
+
+    cd ./create || exit 1
+    /bin/bash ./node-user.sh "$@"
+    cd ../ || exit 1
+
     echo "Successfully created users!"
 fi
+
+# Finalization's
+echo "Finalizing installation..."
+/bin/bash ./finalize/core.sh
+printf "%s\n%s\n%s\n== Successfully installed Wittig Server [Node Edition] @ $( cat /etc/hostname ) ==%s\n%s\n%s\n"
