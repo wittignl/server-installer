@@ -16,13 +16,14 @@ do
     # Install NodeJS
     echo "  Installing NodeJS..."
     sudo -H -u "$newUser" bash -lic 'cd ~/ && nvm install --lts'
-    echo "    Successfully installed NodeJS $(sudo -H -u "$newUser" bash -l -c 'node -v')!"
+    echo "    Successfully installed NodeJS $(sudo -H -u "$newUser" bash -l -c 'cd ~/ && node -v')!"
 
     # Install and Setup PNPM
     echo "  Installing PNPM..."
-    sudo -H -u "$newUser" bash -lic 'cd ~/ && corepack install -g pnpm@latest && corepack enable pnpm'
+    sudo -H -u "$newUser" bash -lic 'cd ~/ && corepack install -g pnpm@latest'
+    sudo -H -u "$newUser" bash -lic 'cd ~/ && corepack enable pnpm'
     sudo -H -u "$newUser" bash -lic 'cd ~/ && pnpm setup'
-    echo "    Successfully installed PNPM $(sudo -H -u "$newUser" bash -l -c 'pnpm -v')!"
+    echo "    Successfully installed PNPM $(sudo -H -u "$newUser" bash -lic 'cd ~/ && pnpm -v')!"
 
     # Install PM2 and Bunyan
     echo "  Installing PM2 and Bunyan..."
