@@ -23,6 +23,6 @@ echo "Successfully installed system packages!"
 # Automatically create users
 if [ "$#" -gt 0 ]; then
     echo "Creating users..."
-    /bin/bash ./create/node-user.sh "$@"
+    sudo -D ./create /bin/bash ./create/node-user.sh "$@"
     echo "Successfully created users!"
 fi

@@ -7,7 +7,8 @@ echo "Preparing MariaDB repository..."
 wget -qO /etc/apt/trusted.gpg.d/mariadb.pgp https://mariadb.org/mariadb_release_signing_key.pgp
 
 ## Create package list
-echo "deb https://mirror.mariadb.org/repo/11.4/ubuntu $(lsb_release -cs) mariadb main"
+echo -e "deb [signed-by=/etc/apt/trusted.gpg.d/mariadb.pgp] https://mirror.mariadb.org/repo/11.4/ubuntu $(lsb_release -cs) main" \
+  | tee /etc/apt/sources.list.d/mariadb.list
 
 ## Pin package to make sure the MariaDB repo is used
 echo -e "Package: *\nPin: origin mirror.mariadb.org\nPin: release o=mariadb-server\nPin-Priority: 900" \
