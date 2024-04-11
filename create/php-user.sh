@@ -6,7 +6,11 @@
 # Iterate through each user and install the tooling for them.
 for newUser in "$@"
 do
+    echo "Creating PHP user '$newUser'..."
+
     # Install Composer
+    echo "  Installing Composer..."
+
     ## Download installer signature
     EXPECTED_CHECKSUM="$( sudo -H -u "$newUser" bash -c 'php -r "copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");"' )"
 
@@ -31,4 +35,8 @@ do
     ## Move installer to user bin
     sudo -H -u "$newUser" bash -c 'mkdir ~/bin'
     sudo -H -u "$newUser" bash -c 'mv composer.phar ~/bin/composer'
+
+    echo "  Successfully installed Composer!"
+
+    echo "Successfully created PHP user '$newUser'!"
 done
