@@ -20,7 +20,8 @@ do
 
     # Install and Setup PNPM
     echo "  Installing PNPM..."
-    sudo -H -u "$newUser" bash -lic 'cd ~/ && corepack install -g pnpm@latest && corepack enable pnpm && pnpm setup'
+    sudo -H -u "$newUser" bash -lic 'cd ~/ && corepack install -g pnpm@latest && corepack enable pnpm'
+    sudo -H -u "$newUser" bash -lic 'cd ~/ && pnpm setup'
     echo "    Successfully installed PNPM $(sudo -H -u "$newUser" bash -l -c 'pnpm -v')!"
 
     # Install PM2 and Bunyan
