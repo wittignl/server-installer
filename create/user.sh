@@ -19,5 +19,5 @@ do
     sudo -H -u "$newUser" bash -c 'ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/id_rsa'
     echo "  Successfully generated SSH keypair!"
 
-    echo "Successfully created UNIX user '$newUser'!"
+    echo "  Successfully created UNIX user '$newUser'!"
 done

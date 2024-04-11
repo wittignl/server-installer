@@ -12,5 +12,5 @@ do
     echo "Creating database user '$newUser'..."
     mysql --execute "CREATE USER '$newUser'@'127.0.0.1';"
     mysql --execute "FLUSH PRIVILEGES;"
-    echo "Successfully created database user '$newUser'!"
+    echo "  Successfully created database user '$newUser'!"
 done

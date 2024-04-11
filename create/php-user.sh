@@ -36,7 +36,7 @@ do
     sudo -H -u "$newUser" bash -c 'mkdir ~/bin'
     sudo -H -u "$newUser" bash -c 'mv composer.phar ~/bin/composer'
 
-    echo "  Successfully installed Composer!"
+    echo "    Successfully installed Composer!"
 
-    echo "Successfully created PHP user '$newUser'!"
+    echo "  Successfully created PHP user '$newUser'!"
 done
