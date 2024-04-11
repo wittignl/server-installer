@@ -14,12 +14,12 @@ Additional users for the server can be created using the following command:
 
 #### With NodeJS, PNPM and PM2 enabled
 ```bash
-./create/node-user.sh <username1> <username2> <username3>
+./create/node-user.sh <username1> (<username2> <username3>)
 ```
 
 #### Regular unix user
 ```bash
-./create/user.sh <username1> <username2> <username3>
+./create/user.sh <username1> (<username2> <username3>)
 ```
 
 ## PHP Server (Legacy Support)
@@ -34,10 +34,10 @@ Additional users for the server can be created using the following command:
 
 #### With PHP enabled
 ```bash
-./create/php-user.sh <username1> <username2> <username3>
+./create/php-user.sh <username1> (<username2> <username3>)
 ```
 
 #### Regular unix user
 ```bash
-./create/user.sh <username1> <username2> <username3>
+./create/user.sh <username1> (<username2> <username3>)
 ```

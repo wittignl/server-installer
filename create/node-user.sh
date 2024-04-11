@@ -1,10 +1,11 @@
 #!/bin/bash
 
+# Create users
+/bin/bash ./user.sh "$@"
+
+# Iterate through each user and install the tooling for them.
 for newUser in "$@"
 do
-    # Create new User
-    /bin/bash ./user.sh "$newUser"
-
     # Install NVM
     sudo -H -u "$newUser" bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 
