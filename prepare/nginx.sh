@@ -4,7 +4,7 @@
 echo "Preparing NGINX repository..."
 
 ## Retrieve NGINX Keyring
-curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
+curl -s https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
   | tee /etc/apt/trusted.gpg.d/nginx.gpg >/dev/null
 
 ## Create package list
