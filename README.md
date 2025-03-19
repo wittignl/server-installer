@@ -2,6 +2,13 @@
 This collection of shell scripts has been designed to simplify the installation of a Wittig server on a fresh Ubuntu 22.04 LTS (Jammy Jellyfish) server.
 Newer ubuntu versions may also work.
 
+## Optional Components
+During installation, you will be prompted to choose whether to install the following optional components:
+- nginx: Web server
+- MariaDB: Database server
+
+You can choose yes or no for each component based on your requirements.
+
 ## Node server (Recommended)
 ```bash
 ./setup-node-server.sh (<username1> <username2> <username3>)
